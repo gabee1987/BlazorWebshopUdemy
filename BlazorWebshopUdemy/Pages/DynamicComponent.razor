@@ -1,0 +1,35 @@
+﻿@page "/dynamic"
+
+<h3>First Dynamic Component</h3>
+
+<br />
+<br />
+
+<button @onclick="HandleBlazorServerClick">Blazor Server</button>
+<button @onclick="HandleBlazorWebAssemblyClick">Blazor WebAssembly</button>
+<br />
+<br />
+<h3>@title</h3>
+<br />
+<div>
+    @content
+</div>
+
+@code {
+
+    private string title;
+    private string content;
+
+    private void HandleBlazorServerClick()
+    {
+        title = "Blazor Server";
+        content = "This is a Blazor Server content";
+    }
+
+    private void HandleBlazorWebAssemblyClick()
+    {
+        title = "Blazor WebAssembly";
+        content = "This is a Blazor WebAssembly content";
+    }
+
+}
