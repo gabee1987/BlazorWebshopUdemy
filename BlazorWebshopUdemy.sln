@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorWebshopUdemy", "Blazo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShop.CoreBusiness", "eShop.CoreBusiness\eShop.CoreBusiness.csproj", "{4336F0BB-C31B-417F-B7BD-4CD2D504A5D5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eShop.UseCases", "eShop.UseCases\eShop.UseCases.csproj", "{431E3D9A-F728-478F-855E-15807883BDEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4336F0BB-C31B-417F-B7BD-4CD2D504A5D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4336F0BB-C31B-417F-B7BD-4CD2D504A5D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4336F0BB-C31B-417F-B7BD-4CD2D504A5D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{431E3D9A-F728-478F-855E-15807883BDEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{431E3D9A-F728-478F-855E-15807883BDEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{431E3D9A-F728-478F-855E-15807883BDEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{431E3D9A-F728-478F-855E-15807883BDEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
