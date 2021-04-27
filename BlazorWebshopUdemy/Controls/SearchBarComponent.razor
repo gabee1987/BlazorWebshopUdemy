@@ -1,8 +1,18 @@
-﻿<div>
+﻿@*Legacy form*@
+@*<div>
     Search:
     <input type="text" @bind-value="filter" />
     <button @onclick="HandleSearch">Search</button>
-</div>
+</div>*@
+
+@*Bootstrap Form*@
+<form class="form-inline">
+    <div class="form-group mx-sm-3 mb-2">
+        <label for="filter">Search:&nbsp;</label>
+        <input type="text" @bind-value="filter" class="form-control" id="filter" placeholder="Type a product name..." />
+    </div>
+    <button type="button" class="btn btn-primary mb-2" @onclick="HandleSearch">Search</button>
+</form>
 
 @code {
     private string filter;
