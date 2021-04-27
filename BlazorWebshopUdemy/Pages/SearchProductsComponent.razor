@@ -4,11 +4,8 @@
 <h3>Search Products</h3>
 <br />
 
-<div>
-    Search:
-    <input type="text" />
-    <button>Search</button>
-</div>
+<SearchBarComponent OnSearch="HandleSearch"></SearchBarComponent>
+
 <br />
 
 <ul>
@@ -27,6 +24,11 @@
         base.OnInitialized();
 
         products = searchProduct.Execute();
+    }
+
+    private void HandleSearch( string filter )
+    {
+
     }
 
 }
