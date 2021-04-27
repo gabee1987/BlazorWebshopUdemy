@@ -1,0 +1,53 @@
+﻿@page "/product/{id:int}"
+
+@inject IViewProduct viewProduct
+
+<h3>Product Details</h3>
+
+@*Legacy Item Detail*@
+@*<div>
+
+    <img src="@product.ImageLink" />
+    <br />
+    @product.Name
+    <br />
+    @product.Brand
+    <br />
+    @product.Price.ToString("c")
+    <br />
+    <br />
+    @product.Description
+
+</div>*@
+
+@*Bootstrap Card Item Detail*@
+<div class="card" style="width: 26rem;">
+    <img src="@product.ImageLink" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">@product.Name</h5>
+        <h6 class="card-subtitle mb-2 text-muted">@product.Brand</h6>
+        <hr />
+        Price: <label style="color:darkred">@product.Price.ToString( "c" )</label>
+        <p class="card-text">@product.Description</p>
+        <a href="" class="btn btn-primary">Add to cart</a>
+    </div>
+</div>
+<br />
+<NavLink href="products">Back to Products</NavLink>
+
+@code {
+
+    private Product product;
+
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+        if ( Id > 0 )
+            product = viewProduct.Execute( Id );
+    }
+
+}
