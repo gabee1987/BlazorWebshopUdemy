@@ -1,12 +1,10 @@
 ﻿using eShop.CoreBusiness.Models;
 using eShop.UseCases.PluginInterfaces.DataStore;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace eShop.UseCases.SearchProductScreen
 {
-    public class SearchProduct
+    public class SearchProduct : ISearchProduct
     {
         private readonly IProductRepository m_ProductRepository;
         public SearchProduct( IProductRepository productRepository )
@@ -14,7 +12,7 @@ namespace eShop.UseCases.SearchProductScreen
             this.m_ProductRepository = productRepository;
         }
 
-        public IEnumerable<Product> Execute( string filter )
+        public IEnumerable<Product> Execute( string filter = null )
         {
            return m_ProductRepository.GetProducts( filter );
         }
