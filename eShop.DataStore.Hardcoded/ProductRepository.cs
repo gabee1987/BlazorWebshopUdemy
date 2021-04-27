@@ -47,7 +47,9 @@ namespace eShop.DataStore.Hardcoded
             if ( string.IsNullOrWhiteSpace( filter ) )
                 return m_Products;
 
-            return m_Products.Where( prod => prod.Name.ToLower().Equals( filter.ToLower() ) );
+            var test = m_Products.Where( prod => prod.Name.ToLower().Contains( filter.ToLower() ) );
+
+            return m_Products.Where( prod => prod.Name.ToLower().Contains( filter.ToLower() ) );
         }
     }
 }
