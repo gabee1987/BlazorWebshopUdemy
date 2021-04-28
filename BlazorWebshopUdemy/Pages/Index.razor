@@ -51,6 +51,18 @@ Selected option:&nbsp;
 </div>
 Selected option:&nbsp;
 @selectedProductId
+<br />
+<br />
+
+<div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" @onclick="ToggleVisibility" checked>
+    <label class="form-check-label" for="flexSwitchCheckChecked">Toggle Visibility of the component</label>
+</div>
+<div >
+    <VisibilityComponent @ref="visibilityComponent"></VisibilityComponent>
+    <br />
+    @*<button class="btn btn-primary" @onclick="ToggleVisibility">Toggle Visibility</button>*@
+</div>
 
 
 @code {
@@ -58,6 +70,8 @@ Selected option:&nbsp;
     private int selectedGroup;
     private bool isActive = false;
     private int selectedProductId = 0;
+    private VisibilityComponent visibilityComponent;
+
 
     private Product product = new Product
     {
@@ -100,4 +114,9 @@ Selected option:&nbsp;
         }
 
     };
+
+    void ToggleVisibility()
+    {
+        this.visibilityComponent.SetVisibility();
+    }
 }
