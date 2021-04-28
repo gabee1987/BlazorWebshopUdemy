@@ -1,0 +1,13 @@
+﻿<div class="ml-5" style="border:solid 1px #ff6a00" >
+    <h3>CascadingParamsComponent2</h3>
+    <p>
+        Count: @CounterValue
+    </p>
+</div>
+
+@code {
+
+    [CascadingParameter (Name ="Counter")]
+    public int CounterValue { get; set; }
+
+}

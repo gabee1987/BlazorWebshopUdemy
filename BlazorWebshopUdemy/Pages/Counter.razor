@@ -6,6 +6,13 @@
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
+<br />
+<br />
+<CascadingValue Name="Counter" Value="@currentCount">
+    <CascadingParamsComponent1></CascadingParamsComponent1>
+</CascadingValue>
+
+
 @code {
     private int currentCount = 0;
 
