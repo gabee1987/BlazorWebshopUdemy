@@ -39,16 +39,31 @@ Selected option:&nbsp;
 <br />
 <br />
 
-<div class="form-select">
-    <select class="form-select" aria-label="Product Selection" @bind="selectedProductId">
-        <option value="0" selected>Select...</option>
+@*Legacy dropdown*@
+<select class="form-select" aria-label="Product Selection" @bind="selectedProductId">
+    <option value="0" selected>Select...</option>
+    @foreach ( var prod in products )
+    {
+        <option value="@prod.Id">@prod.Name</option>
+    }
+
+</select>
+
+@*Bootstrap dropdown*@
+@*<div class="dropdown">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="productDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+        Product Selection
+    </a>
+
+    <ul class="dropdown-menu" aria-labelledby="productDropdown">
         @foreach ( var prod in products )
         {
             <option value="@prod.Id">@prod.Name</option>
+        <li><a class="dropdown-item" data-bind="" href=""></a></li>
         }
+    </ul>
+</div>*@
 
-    </select>
-</div>
 Selected option:&nbsp;
 @selectedProductId
 <br />
