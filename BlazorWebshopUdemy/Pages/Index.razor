@@ -78,6 +78,57 @@ Selected option:&nbsp;
     <br />
     @*<button class="btn btn-primary" @onclick="ToggleVisibility">Toggle Visibility</button>*@
 </div>
+<br />
+<br />
+
+@*Legacy item templates*@
+@*<TemplatedComponent Items="products" TItem="Product">
+    <Header>
+        <p>
+            <b>Welcome to my first Blazor Application :)</b>
+        </p>
+    </Header>
+    <RepeaterItem Context="item">
+        <h2>Name: @item.Name</h2>
+        <b>Brand: @item.Brand</b>
+        <p>Description: @item.Description</p>
+    </RepeaterItem>
+    <Footer>
+        <br />
+        This application is created by Gabor Koncz with the help of Udemy
+    </Footer>
+</TemplatedComponent>*@
+
+@*Bootstrap Item templates*@
+<TemplatedComponent Items="products" TItem="Product">
+    <Header>
+        <p>
+            <b>Welcome to my first Blazor Application :)</b>
+        </p>
+    </Header>
+    <RepeaterItem Context="item">
+        <div class="accordion" id="productsAccordion">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="header-@item.Id">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@item.Id" aria-expanded="true" aria-controls="@item.Id">
+                        <h2>@item.Name</h2>
+                    </button>
+                </h2>
+                <div id="collapse-@item.Id" class="accordion-collapse collapse show" aria-labelledby="header-@item.Id" data-bs-parent="#productsAccordion">
+                    <div class="accordion-body">
+                        <strong>@item.Brand</strong><p>@item.Id</p>
+                        <p>@item.Description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </RepeaterItem>
+    <Footer>
+        <br />
+        This application is created by Gabor Koncz with the help of Udemy
+    </Footer>
+</TemplatedComponent>
+
 
 
 @code {
