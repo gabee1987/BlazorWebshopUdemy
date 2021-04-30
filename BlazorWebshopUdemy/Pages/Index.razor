@@ -110,7 +110,7 @@ Selected option:&nbsp;
         <div class="accordion" id="productsAccordion">
             <div class="accordion-item">
                 <h2 class="accordion-header" id="header-@item.Id">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@item.Id" aria-expanded="true" aria-controls="@item.Id">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@item.Id" aria-expanded="false" aria-controls="@item.Id">
                         <h2>@item.Name</h2>
                     </button>
                 </h2>
@@ -128,6 +128,51 @@ Selected option:&nbsp;
         This application is created by Gabor Koncz with the help of Udemy
     </Footer>
 </TemplatedComponent>
+<br />
+<br />
+<br />
+
+<b>Form example</b>
+
+
+<EditForm Model="customer" OnValidSubmit="ValidFormSubmitted" class="row g-3 needs-validation" novalidate>
+    <DataAnnotationsValidator />
+    <ValidationSummary></ValidationSummary>
+    <div class="form-group">
+        <label for="fname" class="form-label">First Name</label>
+        <InputText type="text" class="form-control" id="fname" @bind-Value="customer.FirstName" required></InputText>
+        @*<div class="text-danger">
+            Please fill in the First Name!
+        </div>*@
+    </div>
+    <div class="form-group">
+        <label for="lname" class="form-label">Last Name</label>
+        <InputText type="text" class="form-control" id="lname" @bind-Value="customer.LastName" required></InputText>
+        @*<div class="text-danger">
+            Please fill in the Last Name!
+        </div>*@
+    </div>
+    <div class="form-group">
+        <label for="email" class="form-label">Email Address</label>
+        <InputText type="email" class="form-control" id="email" @bind-Value="customer.Email" placeholder="name@example.com" required></InputText>
+        @*<div class="text-danger">
+            Please fill in the Email Address!
+        </div>*@
+    </div>
+    <div class="form-group">
+        <label for="cust_number" class="form-label">Customer Number</label>
+        <InputNumber type="number" id="cust_number" class="form-control" @bind-Value="customer.CustomerNumber" required></InputNumber>
+        @*<div class="text-danger">
+            Please choose a customer number!
+        </div>*@
+    </div>
+
+    <br />
+
+    <input class="btn btn-primary" type="submit" value="Submit" />
+</EditForm>
+<br />
+<br />
 
 
 
@@ -184,5 +229,14 @@ Selected option:&nbsp;
     void ToggleVisibility()
     {
         this.visibilityComponent.SetVisibility();
+    }
+
+    // Form and validations
+
+    Customer customer = new Customer();
+
+    private void ValidFormSubmitted()
+    {
+
     }
 }
