@@ -1,5 +1,6 @@
 using BlazorWebshopUdemy.Data;
 using BlazorWebshopUdemy.Stores.CounterStore;
+using eShop.CoreBusiness.Services;
 using eShop.DataStore.Hardcoded;
 using eShop.UseCases.PluginInterfaces.DataStore;
 using eShop.UseCases.SearchProductScreen;
@@ -34,6 +35,11 @@ namespace BlazorWebshopUdemy
             services.AddTransient<IViewProduct, ViewProduct>();
 
             services.AddScoped<CounterStore>();
+
+            // Dependency Injection methods
+            services.AddTransient<ICustomerService, CustomerService>(); // <- everytime we want to use this interface, its instantinate a new class for it
+            //services.AddScoped<ICustomerService, CustomerService>(); // <- everytime we want to use this interface, it will give us an already instantinated class that is scoped to the connection
+            //services.AddSingleton<ICustomerService, CustomerService>(); // <- everytime we want to use this interface, it will always give us the same class
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

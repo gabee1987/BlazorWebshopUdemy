@@ -1,5 +1,9 @@
 ﻿@page "/"
 
+@implements IDisposable
+
+@inject ICustomerService customerService
+
 <h1>Hello, world!</h1>
 
 Welcome to your new app.
@@ -176,6 +180,18 @@ Selected option:&nbsp;
 </EditForm>
 <br />
 <br />
+<br />
+@* Dependency Injection example *@
+<h2>Customers</h2>
+<br />
+<b>Guid:</b> <p>@customerService.Uid</p>
+<br />
+
+@if( customer != null )
+{
+    <b>Customer Info:</b> <p>@customer.FirstName &nbsp; @customer.LastName</p>
+    
+}
 
 
 
@@ -236,9 +252,26 @@ Selected option:&nbsp;
 
     // Form and validations
 
-    Customer customer = new Customer();
+    //Customer customer = new Customer();
 
     private void ValidFormSubmitted()
+    {
+
+    }
+
+    // Dependency Injection example
+    //CustomerService customerService = new CustomerService(); <- not good
+
+    private Customer customer;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        customer = customerService.GetCustomerById( 1 );
+    }
+
+    public void Dispose()
     {
 
     }
