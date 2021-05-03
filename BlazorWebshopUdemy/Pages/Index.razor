@@ -7,9 +7,12 @@ Welcome to your new app.
 
 Product Name: @product.Name
 <br />
-<input type="text" @bind-value="product.Name" @bind-value:event="oninput" />
+<div class="form-group">
+    <input class="form-control" type="text" @bind-value="product.Name" @bind-value:event="oninput" />
+</div>
 <br />
 <br />
+
 <div class="form-check">
     <input class="form-check-input" type="checkbox" name="isActive" id="isActive" @bind-value="isActive" />
     <label class="form-check-label" for="isActive">

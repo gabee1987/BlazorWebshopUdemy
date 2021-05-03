@@ -1,4 +1,5 @@
 using BlazorWebshopUdemy.Data;
+using BlazorWebshopUdemy.Stores.CounterStore;
 using eShop.DataStore.Hardcoded;
 using eShop.UseCases.PluginInterfaces.DataStore;
 using eShop.UseCases.SearchProductScreen;
@@ -31,6 +32,8 @@ namespace BlazorWebshopUdemy
             services.AddTransient<IProductRepository, ProductRepository>();
             services.AddTransient<ISearchProduct, SearchProduct>();
             services.AddTransient<IViewProduct, ViewProduct>();
+
+            services.AddScoped<CounterStore>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
